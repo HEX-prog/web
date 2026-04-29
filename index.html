@@ -35,7 +35,7 @@
 <meta name="twitter:title" content="MAKCU V3 Türkiye - DMA Donanım ve Veri Aktarım Çözümleri">
 <meta name="twitter:description" content="MAKCU V3, iki bilgisayar arasında düşük gecikmeli fare sinyali iletimi sağlayan donanımsal bir arayüzdür.">
 
-<!-- Schema.org Structured Data -->
+<!-- Schema.org Structured Data - DÜZELTİLMİŞ VERSİYON -->
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -46,11 +46,52 @@
     "@type": "Brand",
     "name": "MAKCU"
   },
+  "image": [
+    "https://makcuturkey.com/images/1.jpg",
+    "https://makcuturkey.com/images/2.jpg",
+    "https://makcuturkey.com/images/3.jpg",
+    "https://makcuturkey.com/images/4.jpg",
+    "https://makcuturkey.com/images/5.jpg"
+  ],
   "offers": {
     "@type": "Offer",
-    "price": "3500",
+    "price": "3499",
     "priceCurrency": "TRY",
-    "availability": "https://schema.org/InStock"
+    "availability": "https://schema.org/InStock",
+    "hasMerchantReturnPolicy": {
+      "@type": "MerchantReturnPolicy",
+      "applicableCountry": "TR",
+      "returnPolicyCategory": "https://schema.org/MerchantReturnFiniteReturnWindow",
+      "returnDays": "14",
+      "returnFees": "https://schema.org/ReturnFeesCustomerResponsibility"
+    },
+    "shippingDetails": {
+      "@type": "OfferShippingDetails",
+      "shippingRate": {
+        "@type": "MonetaryAmount",
+        "value": "0",
+        "currency": "TRY"
+      },
+      "shippingDestination": {
+        "@type": "DefinedRegion",
+        "addressCountry": "TR"
+      },
+      "deliveryTime": {
+        "@type": "ShippingDeliveryTime",
+        "handlingTime": {
+          "@type": "QuantitativeValue",
+          "minValue": "1",
+          "maxValue": "1",
+          "unitCode": "DAY"
+        },
+        "transitTime": {
+          "@type": "QuantitativeValue",
+          "minValue": "1",
+          "maxValue": "3",
+          "unitCode": "DAY"
+        }
+      }
+    }
   }
 }
 </script>
@@ -529,6 +570,55 @@
     </div>
   </div>
 
+  <!-- ========== KAYDIRMALI ÜRÜN GALERİSİ ========== -->
+  <div style="margin: 3rem 0;">
+    <div style="text-align: center; margin-bottom: 1.5rem;">
+      <div class="badge">
+        <i class="fas fa-images"></i> MAKCU V3 GALERİ
+      </div>
+      <h2 style="font-family: 'Manrope', sans-serif; font-size: 1.4rem; margin-top: 0.5rem;">Ürün Görselleri</h2>
+      <p style="color: #aaaaaa; font-size: 0.85rem;">Kaydırarak tüm görsellere göz atın</p>
+    </div>
+
+    <!-- Slider Container -->
+    <div style="position: relative; max-width: 100%; overflow-x: auto; overflow-y: hidden; white-space: nowrap; scroll-behavior: smooth; -webkit-overflow-scrolling: touch; scrollbar-width: thin; padding: 1rem 0;">
+      <div style="display: inline-flex; gap: 1rem; padding: 0 0.5rem;">
+        <!-- Görsel 1 -->
+        <div style="background: #0a0a0a; border: 1px solid #333; border-radius: 1rem; padding: 0.75rem; width: 280px; flex-shrink: 0; white-space: normal;">
+          <img src="/images/1.jpg" alt="MAKCU V3 Görsel 1" style="width: 100%; height: 180px; object-fit: cover; border-radius: 0.5rem;">
+          <p style="color: #cccccc; font-size: 0.75rem; text-align: center; margin-top: 0.75rem;"></p>
+        </div>
+        <!-- Görsel 2 -->
+        <div style="background: #0a0a0a; border: 1px solid #333; border-radius: 1rem; padding: 0.75rem; width: 280px; flex-shrink: 0; white-space: normal;">
+          <img src="/images/2.jpg" alt="MAKCU V3 Görsel 2" style="width: 100%; height: 180px; object-fit: cover; border-radius: 0.5rem;">
+          <p style="color: #cccccc; font-size: 0.75rem; text-align: center; margin-top: 0.75rem;"></p>
+        </div>
+        <!-- Görsel 3 -->
+        <div style="background: #0a0a0a; border: 1px solid #333; border-radius: 1rem; padding: 0.75rem; width: 280px; flex-shrink: 0; white-space: normal;">
+          <img src="/images/3.jpg" alt="MAKCU V3 Görsel 3" style="width: 100%; height: 180px; object-fit: cover; border-radius: 0.5rem;">
+          <p style="color: #cccccc; font-size: 0.75rem; text-align: center; margin-top: 0.75rem;"></p>
+        </div>
+        <!-- Görsel 4 -->
+        <div style="background: #0a0a0a; border: 1px solid #333; border-radius: 1rem; padding: 0.75rem; width: 280px; flex-shrink: 0; white-space: normal;">
+          <img src="/images/4.jpg" alt="MAKCU V3 Görsel 4" style="width: 100%; height: 180px; object-fit: cover; border-radius: 0.5rem;">
+          <p style="color: #cccccc; font-size: 0.75rem; text-align: center; margin-top: 0.75rem;"></p>
+        </div>
+        <!-- Görsel 5 -->
+        <div style="background: #0a0a0a; border: 1px solid #333; border-radius: 1rem; padding: 0.75rem; width: 280px; flex-shrink: 0; white-space: normal;">
+          <img src="/images/5.jpg" alt="MAKCU V3 Görsel 5" style="width: 100%; height: 180px; object-fit: cover; border-radius: 0.5rem;">
+          <p style="color: #cccccc; font-size: 0.75rem; text-align: center; margin-top: 0.75rem;"></p>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Kaydırma yönlendirmesi -->
+    <div style="text-align: center; margin-top: 1rem;">
+      <p style="color: #666666; font-size: 0.7rem;">
+        <i class="fas fa-arrow-left"></i>  Sağa/sola kaydırarak diğer görsellere bakın  <i class="fas fa-arrow-right"></i>
+      </p>
+    </div>
+  </div>
+
   <!-- Neden MAKCU V3? -->
   <div class="v3-banner">
     <h2><i class="fas fa-question-circle"></i> Neden MAKCU V3 Kullanmalıyız?</h2>
@@ -669,7 +759,7 @@ Bu doğrultuda geliştirdiğimiz MAKCU V3, yalnızca bir güncelleme değil; don
       
       <div class="price-card">
         <div class="price-title">MAKCU V3 PREMIUM PAKET <span class="badge-included">MAKCU DAHİL ve Yazılım Kurulum Desteği</span></div>
-        <div class="price-amount">4.000₺ <small></small></div>
+        <div class="price-amount">3.999₺ <small></small></div>
         <div class="price-features">
           <i class="fas fa-microchip"></i> MAKCU V3 Donanım (DAHİL)<br>
           <i class="fas fa-code"></i> Özel Firmware Dahildir (Tak çalıştır)<br>
@@ -719,7 +809,6 @@ Bu doğrultuda geliştirdiğimiz MAKCU V3, yalnızca bir güncelleme değil; don
         <a href="#">makcu türkiye satın al</a> | 
         <a href="#">makcu türkiye</a> | 
         <a href="#">dma satın al</a> | 
-        <a href="https://cheatglobal.com" target="_blank" title="Cheatglobal" style="color: #808080; text-decoration: none; font-size: 12px;">Cheatglobal</a>| 
         <a href="#">makcu nedir</a>
       </p>
     </div>
