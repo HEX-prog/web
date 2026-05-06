@@ -48,15 +48,15 @@
     "name": "MAKCU"
   },
   "image": [
-    "https://makcuturkey.com/images/IMG_0638.jpg",
-    "https://makcuturkey.com/images/IMG_0640.jpg",
-    "https://makcuturkey.com/images/IMG_0641.jpg",
-    "https://makcuturkey.com/images/IMG_0644.jpg",
-    "https://makcuturkey.com/images/IMG_0645.jpg"
+    "https://makcuturkey.com/images/1.jpg",
+    "https://makcuturkey.com/images/2.jpg",
+    "https://makcuturkey.com/images/3.jpg",
+    "https://makcuturkey.com/images/4.jpg",
+    "https://makcuturkey.com/images/5.jpg"
   ],
   "offers": {
     "@type": "Offer",
-    "price": "3500",
+    "price": "3499",
     "priceCurrency": "TRY",
     "availability": "https://schema.org/InStock",
     "hasMerchantReturnPolicy": {
@@ -64,7 +64,8 @@
       "applicableCountry": "TR",
       "returnPolicyCategory": "https://schema.org/MerchantReturnFiniteReturnWindow",
       "returnDays": "14",
-      "returnFees": "https://schema.org/ReturnFeesCustomerResponsibility"
+      "returnFees": "https://schema.org/ReturnFeesCustomerResponsibility",
+      "returnMethod": "https://schema.org/ReturnByMail"
     },
     "shippingDetails": {
       "@type": "OfferShippingDetails",
@@ -512,6 +513,18 @@
   .seo-footer-content a:hover {
     color: #fff;
   }
+
+  /* ========== GALERİ SCROLL BAR'ı TAMAMEN GİZLE ========== */
+  #gallerySlider {
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+  }
+  
+  #gallerySlider::-webkit-scrollbar {
+    display: none;
+    width: 0;
+    height: 0;
+  }
 </style>
 </head>
 <body>
@@ -571,52 +584,139 @@
     </div>
   </div>
 
-  <!-- ========== KAYDIRMALI ÜRÜN GALERİSİ ========== -->
+  <!-- ========== KAYDIRMALI ÜRÜN GALERİSİ - SCROLL BAR YOK ========== -->
   <div style="margin: 3rem 0;">
     <div style="text-align: center; margin-bottom: 1.5rem;">
       <div class="badge">
         <i class="fas fa-images"></i> MAKCU V3 GALERİ
       </div>
       <h2 style="font-family: 'Manrope', sans-serif; font-size: 1.4rem; margin-top: 0.5rem;">Ürün Görselleri</h2>
-      <p style="color: #aaaaaa; font-size: 0.85rem;">Kaydırarak tüm görsellere göz atın</p>
+      <p style="color: #aaaaaa; font-size: 0.85rem;">Okları kullanarak görseller arasında gezinin</p>
     </div>
 
-    <!-- Slider Container -->
-    <div style="position: relative; max-width: 100%; overflow-x: auto; overflow-y: hidden; white-space: nowrap; scroll-behavior: smooth; -webkit-overflow-scrolling: touch; scrollbar-width: thin; padding: 1rem 0;">
-      <div style="display: inline-flex; gap: 1rem; padding: 0 0.5rem;">
-        <!-- Görsel 1 - IMG_0638.jpg -->
-        <div style="background: #0a0a0a; border: 1px solid #333; border-radius: 1rem; padding: 0.75rem; width: 280px; flex-shrink: 0; white-space: normal;">
-          <img src="/images/1.jpg" alt="MAKCU V3 Görsel 1" style="width: 100%; height: 180px; object-fit: cover; border-radius: 0.5rem;">
-          <p style="color: #cccccc; font-size: 0.75rem; text-align: center; margin-top: 0.75rem;"></p>
+    <div style="position: relative; display: flex; align-items: center; gap: 1rem;">
+      <button id="scrollLeftBtn" style="background: rgba(0,0,0,0.8); border: 1px solid #00ff80; border-radius: 50%; width: 45px; height: 45px; cursor: none; display: flex; align-items: center; justify-content: center; transition: all 0.2s; flex-shrink: 0; z-index: 10;" onmouseenter="this.style.background='#00ff80'; this.querySelector('i').style.color='#000';" onmouseleave="this.style.background='rgba(0,0,0,0.8)'; this.querySelector('i').style.color='#00ff80';">
+        <i class="fas fa-chevron-left" style="color: #00ff80; font-size: 1.2rem; transition: all 0.2s;"></i>
+      </button>
+
+      <div id="gallerySlider" style="flex: 1; overflow-x: auto; overflow-y: hidden; white-space: nowrap; scroll-behavior: smooth; -webkit-overflow-scrolling: touch; padding: 1rem 0;">
+        <div style="display: inline-flex; gap: 1.5rem; padding: 0 0.5rem;">
+          <div style="background: #0a0a0a; border: 1px solid #333; border-radius: 1rem; padding: 0.75rem; width: 280px; flex-shrink: 0; white-space: normal; transition: transform 0.2s, border-color 0.2s;" onmouseenter="this.style.borderColor='#00ff80'; this.style.transform='translateY(-5px)';" onmouseleave="this.style.borderColor='#333'; this.style.transform='translateY(0)';">
+            <img src="/images/1.jpg" alt="MAKCU V3 Görsel 1" style="width: 100%; height: 180px; object-fit: cover; border-radius: 0.5rem;">
+            <p style="color: #cccccc; font-size: 0.75rem; text-align: center; margin-top: 0.75rem;"></p>
+          </div>
+          <div style="background: #0a0a0a; border: 1px solid #333; border-radius: 1rem; padding: 0.75rem; width: 280px; flex-shrink: 0; white-space: normal; transition: transform 0.2s, border-color 0.2s;" onmouseenter="this.style.borderColor='#00ff80'; this.style.transform='translateY(-5px)';" onmouseleave="this.style.borderColor='#333'; this.style.transform='translateY(0)';">
+            <img src="/images/2.jpg" alt="MAKCU V3 Görsel 2" style="width: 100%; height: 180px; object-fit: cover; border-radius: 0.5rem;">
+            <p style="color: #cccccc; font-size: 0.75rem; text-align: center; margin-top: 0.75rem;"></p>
+          </div>
+          <div style="background: #0a0a0a; border: 1px solid #333; border-radius: 1rem; padding: 0.75rem; width: 280px; flex-shrink: 0; white-space: normal; transition: transform 0.2s, border-color 0.2s;" onmouseenter="this.style.borderColor='#00ff80'; this.style.transform='translateY(-5px)';" onmouseleave="this.style.borderColor='#333'; this.style.transform='translateY(0)';">
+            <img src="/images/3.jpg" alt="MAKCU V3 Görsel 3" style="width: 100%; height: 180px; object-fit: cover; border-radius: 0.5rem;">
+            <p style="color: #cccccc; font-size: 0.75rem; text-align: center; margin-top: 0.75rem;"></p>
+          </div>
+          <div style="background: #0a0a0a; border: 1px solid #333; border-radius: 1rem; padding: 0.75rem; width: 280px; flex-shrink: 0; white-space: normal; transition: transform 0.2s, border-color 0.2s;" onmouseenter="this.style.borderColor='#00ff80'; this.style.transform='translateY(-5px)';" onmouseleave="this.style.borderColor='#333'; this.style.transform='translateY(0)';">
+            <img src="/images/4.jpg" alt="MAKCU V3 Görsel 4" style="width: 100%; height: 180px; object-fit: cover; border-radius: 0.5rem;">
+            <p style="color: #cccccc; font-size: 0.75rem; text-align: center; margin-top: 0.75rem;"></p>
+          </div>
+          <div style="background: #0a0a0a; border: 1px solid #333; border-radius: 1rem; padding: 0.75rem; width: 280px; flex-shrink: 0; white-space: normal; transition: transform 0.2s, border-color 0.2s;" onmouseenter="this.style.borderColor='#00ff80'; this.style.transform='translateY(-5px)';" onmouseleave="this.style.borderColor='#333'; this.style.transform='translateY(0)';">
+            <img src="/images/5.jpg" alt="MAKCU V3 Görsel 5" style="width: 100%; height: 180px; object-fit: cover; border-radius: 0.5rem;">
+            <p style="color: #cccccc; font-size: 0.75rem; text-align: center; margin-top: 0.75rem;"></p>
+          </div>
         </div>
-        <!-- Görsel 2 - IMG_0640.jpg -->
-        <div style="background: #0a0a0a; border: 1px solid #333; border-radius: 1rem; padding: 0.75rem; width: 280px; flex-shrink: 0; white-space: normal;">
-          <img src="/images/2.jpg" alt="MAKCU V3 Görsel 2" style="width: 100%; height: 180px; object-fit: cover; border-radius: 0.5rem;">
-          <p style="color: #cccccc; font-size: 0.75rem; text-align: center; margin-top: 0.75rem;"></p>
+      </div>
+
+      <button id="scrollRightBtn" style="background: rgba(0,0,0,0.8); border: 1px solid #00ff80; border-radius: 50%; width: 45px; height: 45px; cursor: none; display: flex; align-items: center; justify-content: center; transition: all 0.2s; flex-shrink: 0; z-index: 10;" onmouseenter="this.style.background='#00ff80'; this.querySelector('i').style.color='#000';" onmouseleave="this.style.background='rgba(0,0,0,0.8)'; this.querySelector('i').style.color='#00ff80';">
+        <i class="fas fa-chevron-right" style="color: #00ff80; font-size: 1.2rem; transition: all 0.2s;"></i>
+      </button>
+    </div>
+  </div>
+
+  <!-- ========== GERÇEK KULLANICI YORUMLARI (SAHIBINDEN.COM) ========== -->
+  <div style="margin: 3rem 0;">
+    <div style="text-align: center; margin-bottom: 1.5rem;">
+      <div class="badge">
+        <i class="fas fa-star"></i> MÜŞTERİ YORUMLARI
+      </div>
+      <h2 style="font-family: 'Manrope', sans-serif; font-size: 1.4rem;">Sahibinden.com'dan Değerlendirmelerimiz</h2>
+      <p style="color: #aaaaaa; font-size: 0.85rem;">Gerçek kullanıcılarımızın satın alma sonrası yorumları</p>
+    </div>
+
+    <div style="display: flex; flex-wrap: wrap; gap: 1.5rem; justify-content: center;">
+      
+      <div style="background: #0a0a0a; border: 1px solid #333; border-radius: 1rem; padding: 1.5rem; width: 320px;">
+        <div style="display: flex; align-items: center; gap: 0.75rem; margin-bottom: 1rem;">
+          <i class="fas fa-user-circle" style="font-size: 2.5rem; color: #00ff80;"></i>
+          <div>
+            <p style="font-weight: 700; font-family: 'Manrope', sans-serif;">Talha C.</p>
+            <div style="color: #ffc107; font-size: 0.9rem;">
+              <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+            </div>
+          </div>
         </div>
-        <!-- Görsel 3 - IMG_0641.jpg -->
-        <div style="background: #0a0a0a; border: 1px solid #333; border-radius: 1rem; padding: 0.75rem; width: 280px; flex-shrink: 0; white-space: normal;">
-          <img src="/images/3.jpg" alt="MAKCU V3 Görsel 3" style="width: 100%; height: 180px; object-fit: cover; border-radius: 0.5rem;">
-          <p style="color: #cccccc; font-size: 0.75rem; text-align: center; margin-top: 0.75rem;"></p>
+        <p style="color: #cccccc; font-size: 0.85rem; line-height: 1.5; font-style: italic;">"Anlatıldığı gibiydi, herhangi bir sorun yok. Teşekkür ederim."</p>
+        <div style="margin-top: 1rem; display: flex; justify-content: space-between; align-items: center;">
+          <span style="background: #1a1a1a; padding: 0.2rem 0.6rem; border-radius: 2rem; font-size: 0.65rem; color: #00ff80;">Makcu premium paket</span>
+          <span style="color: #666666; font-size: 0.65rem;">05.05.2026</span>
         </div>
-        <!-- Görsel 4 - IMG_0644.jpg -->
-        <div style="background: #0a0a0a; border: 1px solid #333; border-radius: 1rem; padding: 0.75rem; width: 280px; flex-shrink: 0; white-space: normal;">
-          <img src="/images/4.jpg" alt="MAKCU V3 Görsel 4" style="width: 100%; height: 180px; object-fit: cover; border-radius: 0.5rem;">
-          <p style="color: #cccccc; font-size: 0.75rem; text-align: center; margin-top: 0.75rem;"></p>
+      </div>
+
+      <div style="background: #0a0a0a; border: 1px solid #333; border-radius: 1rem; padding: 1.5rem; width: 320px;">
+        <div style="display: flex; align-items: center; gap: 0.75rem; margin-bottom: 1rem;">
+          <i class="fas fa-user-circle" style="font-size: 2.5rem; color: #00ff80;"></i>
+          <div>
+            <p style="font-weight: 700; font-family: 'Manrope', sans-serif;">Günay S.</p>
+            <div style="color: #ffc107; font-size: 0.9rem;">
+              <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+            </div>
+          </div>
         </div>
-        <!-- Görsel 5 - IMG_0645.jpg -->
-        <div style="background: #0a0a0a; border: 1px solid #333; border-radius: 1rem; padding: 0.75rem; width: 280px; flex-shrink: 0; white-space: normal;">
-          <img src="/images/5.jpg" alt="MAKCU V3 Görsel 5" style="width: 100%; height: 180px; object-fit: cover; border-radius: 0.5rem;">
-          <p style="color: #cccccc; font-size: 0.75rem; text-align: center; margin-top: 0.75rem;"></p>
+        <p style="color: #cccccc; font-size: 0.85rem; line-height: 1.5; font-style: italic;">"Güvenilir satıcı"</p>
+        <div style="margin-top: 1rem; display: flex; justify-content: space-between; align-items: center;">
+          <span style="background: #1a1a1a; padding: 0.2rem 0.6rem; border-radius: 2rem; font-size: 0.65rem; color: #00ff80;">Makcu v3 premium paket</span>
+          <span style="color: #666666; font-size: 0.65rem;">02.05.2026</span>
+        </div>
+      </div>
+
+      <div style="background: #0a0a0a; border: 1px solid #333; border-radius: 1rem; padding: 1.5rem; width: 320px;">
+        <div style="display: flex; align-items: center; gap: 0.75rem; margin-bottom: 1rem;">
+          <i class="fas fa-user-circle" style="font-size: 2.5rem; color: #00ff80;"></i>
+          <div>
+            <p style="font-weight: 700; font-family: 'Manrope', sans-serif;">Emre K.</p>
+            <div style="color: #ffc107; font-size: 0.9rem;">
+              <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+            </div>
+          </div>
+        </div>
+        <p style="color: #cccccc; font-size: 0.85rem; line-height: 1.5; font-style: italic;">"Aynı gün kargo. Eksiksiz ve tam destek 5 yıldız"</p>
+        <div style="margin-top: 1rem; display: flex; justify-content: space-between; align-items: center;">
+          <span style="background: #1a1a1a; padding: 0.2rem 0.6rem; border-radius: 2rem; font-size: 0.65rem; color: #00ff80;">Makcu v3 standart paket</span>
+          <span style="color: #666666; font-size: 0.65rem;">30.04.2026</span>
+        </div>
+      </div>
+
+      <div style="background: #0a0a0a; border: 1px solid #333; border-radius: 1rem; padding: 1.5rem; width: 320px;">
+        <div style="display: flex; align-items: center; gap: 0.75rem; margin-bottom: 1rem;">
+          <i class="fas fa-user-circle" style="font-size: 2.5rem; color: #00ff80;"></i>
+          <div>
+            <p style="font-weight: 700; font-family: 'Manrope', sans-serif;">Kürşat D.</p>
+            <div style="color: #ffc107; font-size: 0.9rem;">
+              <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+            </div>
+          </div>
+        </div>
+        <p style="color: #cccccc; font-size: 0.85rem; line-height: 1.5; font-style: italic;">"Her konuda çok yardımcı oldu teşekkürler"</p>
+        <div style="margin-top: 1rem; display: flex; justify-content: space-between; align-items: center;">
+          <span style="background: #1a1a1a; padding: 0.2rem 0.6rem; border-radius: 2rem; font-size: 0.65rem; color: #00ff80;">Makcu v3 full paket</span>
+          <span style="color: #666666; font-size: 0.65rem;">28.04.2026</span>
         </div>
       </div>
     </div>
-    
-    <!-- Kaydırma yönlendirmesi -->
-    <div style="text-align: center; margin-top: 1rem;">
-      <p style="color: #666666; font-size: 0.7rem;">
-        <i class="fas fa-arrow-left"></i>  Sağa/sola kaydırarak diğer görsellere bakın  <i class="fas fa-arrow-right"></i>
-      </p>
+
+    <div style="text-align: center; margin-top: 2.5rem;">
+      <a href="https://www.sahibinden.com/satici-profili/yakupg-bFBVglJUCA5T-HYoYFAGfig" target="_blank" rel="noopener noreferrer" style="display: inline-flex; align-items: center; gap: 0.75rem; background: #1a1a1a; border: 1px solid #00ff80; padding: 0.75rem 1.8rem; border-radius: 3rem; text-decoration: none; transition: all 0.2s;">
+        <i class="fab fa-sahibinden" style="color: #00ff80; font-size: 1.2rem;"></i>
+        <span style="color: #ffffff; font-weight: 600;">Tüm Yorumları Sahibinden.com'da Gör</span>
+        <i class="fas fa-external-link-alt" style="color: #00ff80; font-size: 0.8rem;"></i>
+      </a>
     </div>
   </div>
 
@@ -728,6 +828,50 @@ Bu doğrultuda geliştirdiğimiz MAKCU V3, yalnızca bir güncelleme değil; don
     </div>
   </div>
 
+  <!-- ========== GÜVENLİLİK VE İLANLAR ========== -->
+  <div style="margin: 3rem 0 2rem 0; padding: 1.5rem; background: rgba(255,255,255,0.02); border-radius: 1.5rem; border: 1px solid rgba(255,255,255,0.1);">
+    <div style="text-align: center; margin-bottom: 2rem;">
+      <div class="badge">
+        <i class="fas fa-shield-alt"></i> GÜVENİLİRLİK
+      </div>
+      <h2 style="font-family: 'Manrope', sans-serif; font-size: 1.6rem;">Resmi Satış Kanalımız</h2>
+      <p style="color: #aaaaaa;">Satışlarımızı ve yorumlarımızı Türkiye'nin en büyük pazaryerinde inceleyebilirsiniz.</p>
+    </div>
+
+    <div style="display: flex; flex-wrap: wrap; gap: 2rem; justify-content: center; align-items: stretch;">
+      
+      <div style="flex: 1; min-width: 250px; background: #0a0a0a; border: 1px solid #333; border-radius: 1rem; padding: 1.5rem; text-align: center;">
+        <i class="fas fa-tag" style="font-size: 2rem; color: #00ff80; margin-bottom: 1rem;"></i>
+        <h3 style="font-family: 'Manrope', sans-serif; font-size: 1.2rem;">Güncel İlanımız</h3>
+        <p style="color: #bbbbbb; font-size: 0.85rem; margin: 0.5rem 0;">MAKCU V3 donanım ilanımıza göz atın.</p>
+        <a href="https://www.sahibinden.com/ilan/ikinci-el-ve-sifir-alisveris-bilgisayar-masaustu-makcu-v3-firmware-dahil-dma-karti-makcu-satin-al-turkiye-1312719340/detay" target="_blank" rel="noopener noreferrer" style="display: inline-block; margin-top: 1rem; color: #00ff80; text-decoration: none; border-bottom: 1px solid #00ff80;">
+          İlanı İncele <i class="fas fa-external-link-alt" style="font-size: 0.7rem;"></i>
+        </a>
+      </div>
+
+      <div style="flex: 1; min-width: 250px; background: #0a0a0a; border: 1px solid #333; border-radius: 1rem; padding: 1.5rem; text-align: center;">
+        <i class="fas fa-store" style="font-size: 2rem; color: #00ff80; margin-bottom: 1rem;"></i>
+        <h3 style="font-family: 'Manrope', sans-serif; font-size: 1.2rem;">Satıcı Profilimiz</h3>
+        <p style="color: #bbbbbb; font-size: 0.85rem; margin: 0.5rem 0;">Geçmiş satışlarımızı ve kullanıcı yorumlarımızı görün.</p>
+        <a href="https://www.sahibinden.com/satici-profili/yakupg-bFBVglJUCA5T-HYoYFAGfig" target="_blank" rel="noopener noreferrer" style="display: inline-block; margin-top: 1rem; color: #00ff80; text-decoration: none; border-bottom: 1px solid #00ff80;">
+          Profili ve Yorumları Gör <i class="fas fa-external-link-alt" style="font-size: 0.7rem;"></i>
+        </a>
+      </div>
+
+      <div style="flex: 1; min-width: 250px; background: #0a0a0a; border: 1px solid #333; border-radius: 1rem; padding: 1.5rem; text-align: center;">
+        <i class="fas fa-hand-holding-usd" style="font-size: 2rem; color: #00ff80; margin-bottom: 1rem;"></i>
+        <h3 style="font-family: 'Manrope', sans-serif; font-size: 1.2rem;">Güvenli Ödeme</h3>
+        <p style="color: #bbbbbb; font-size: 0.85rem; margin: 0.5rem 0;">Sahibinden.com üzerinden <strong>Param Güvende</strong> ile tüm alışverişleriniz güvencededir.</p>
+        <div style="margin-top: 1rem;">
+          <i class="fab fa-bitcoin" style="color: #f7931a; margin: 0 0.25rem;"></i>
+          <i class="fab fa-cc-visa" style="color: #1a1f71; margin: 0 0.25rem;"></i>
+          <i class="fab fa-cc-mastercard" style="color: #eb001b; margin: 0 0.25rem;"></i>
+          <span style="color: #fff; background: #00ff80; padding: 0.1rem 0.4rem; border-radius: 4px; font-size: 0.7rem; margin-left: 0.5rem;">EFT/Havale</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
   <!-- Fiyatlandırma Bölümü -->
   <div class="pricing-section">
     <div class="pricing-title">
@@ -789,10 +933,8 @@ Bu doğrultuda geliştirdiğimiz MAKCU V3, yalnızca bir güncelleme değil; don
   <footer>
     <p>© 2026 MAKCU Türkiye — Profesyonel 2 pc makcu sistemleri ve yazılım çözümleri.
     
-    <!-- ========== GÖRÜNÜR SEO İÇERİK ALANI ========== -->
     <div class="seo-footer-content">
       <p>
-          <!-- ========== YASAL UYARI / BİLDİRİM VE KALDIRMA POLİTİKASI ========== -->
 <div class="legal-notice" style="margin-top: 2rem; padding: 1rem; border-top: 1px solid #333; font-size: 0.65rem; color: #666; text-align: center; line-height: 1.4;">
   <strong>Yasal Uyarı</strong><br>
   Bu sitede tanıtılan donanım ürünleri, iki bilgisayar arasında veri iletimi için tasarlanmış genel amaçlı elektronik cihazlardır. 
@@ -807,7 +949,6 @@ Bu doğrultuda geliştirdiğimiz MAKCU V3, yalnızca bir güncelleme değil; don
        
       <p>
         <a href="#">makcu satın al</a> |
-        <a href="https://cheatglobal.com" target="_blank" title="Cheatglobal">Cheatglobal</a> |
         <a href="#">makcu türkiye satın al</a> | 
         <a href="#">makcu türkiye</a> | 
         <a href="#">dma satın al</a> | 
@@ -818,7 +959,6 @@ Bu doğrultuda geliştirdiğimiz MAKCU V3, yalnızca bir güncelleme değil; don
 </div>
 
 <script>
-  // ========== ÖZEL İMLEÇ ==========
   const cursor = document.getElementById('custom-cursor');
   document.addEventListener('mousemove', (e) => {
     cursor.style.left = (e.clientX - 14) + 'px';
@@ -831,7 +971,6 @@ Bu doğrultuda geliştirdiğimiz MAKCU V3, yalnızca bir güncelleme değil; don
     item.addEventListener('mouseleave', () => cursor.classList.remove('hover'));
   });
 
-  // ========== PARTICLE NETWORK SYSTEM ==========
   const canvas = document.getElementById('particle-canvas');
   const ctx = canvas.getContext('2d');
   let particles = [];
@@ -911,6 +1050,26 @@ Bu doğrultuda geliştirdiğimiz MAKCU V3, yalnızca bir güncelleme değil; don
   window.addEventListener('resize', resizeCanvas);
   resizeCanvas();
   animateParticles();
+
+  // ========== GALERİ KAYDIRMA BUTONLARI ==========
+  const slider = document.getElementById('gallerySlider');
+  const leftBtn = document.getElementById('scrollLeftBtn');
+  const rightBtn = document.getElementById('scrollRightBtn');
+  
+  if (slider && leftBtn && rightBtn) {
+    leftBtn.addEventListener('click', () => {
+      slider.scrollBy({ left: -300, behavior: 'smooth' });
+    });
+    
+    rightBtn.addEventListener('click', () => {
+      slider.scrollBy({ left: 300, behavior: 'smooth' });
+    });
+    
+    slider.addEventListener('wheel', (e) => {
+      e.preventDefault();
+      slider.scrollBy({ left: e.deltaY > 0 ? 100 : -100, behavior: 'smooth' });
+    });
+  }
 </script>
 </body>
 </html>
