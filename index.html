@@ -8,7 +8,7 @@
 <link rel="manifest" href="/site.webmanifest">
 <link rel="icon" type="image/x-icon" href="/favicon.ico">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-<title>MAKCU V3 Türkiye | Profesyonel Donanım & Veri Aktarım Çözümleri</title>
+<title>MAKCU V3 Türkiye | Donanımsal Veri Aktarım & HID Çözümleri</title>
 
 <!-- ========== SEO META ETİKETLERI ========== -->
 <meta name="description" content="MAKCU V3, iki bilgisayar arasında fare sinyali iletimi sağlayan profesyonel bir donanım arayüzüdür. Tamamen donanım katmanında (HID) çalışan, kesintisiz veri aktarım köprüsü.">
@@ -42,8 +42,8 @@
   "offers": {
     "@type": "AggregateOffer",
     "priceCurrency": "TRY",
-    "lowPrice": "2500",
-    "highPrice": "3000",
+    "lowPrice": "2800",
+    "highPrice": "3500",
     "offerCount": "2",
     "availability": "https://schema.org/InStock"
   }
@@ -74,6 +74,9 @@
 
   :root {
     --success-color: #00ff80;
+    --accent-blue: #00bfff;
+    --card-bg: rgba(10, 10, 10, 0.85);
+    --border-color: rgba(255, 255, 255, 0.1);
   }
   
   /* ========== ÖZEL İMLEÇ STİLLERİ ========== */
@@ -117,7 +120,7 @@
     box-shadow: 0 0 10px var(--success-color);
   }
 
-  a, button, .clickable, .discord-buy-btn, .btn-primary, .btn-outline, .mk-btn-sahibinden, .mk-btn-sahibinden-reviews { cursor: none; }
+  a, button, .clickable, .discord-buy-btn, .btn-primary, .btn-outline, .mk-btn-sahibinden, .mk-btn-sahibinden-reviews, .feature-card, .step-card { cursor: none; }
 
   #particle-canvas {
     position: fixed;
@@ -184,44 +187,199 @@
   .hero-sub {
     font-size: 1.05rem;
     color: #aaaaaa;
-    max-width: 650px;
+    max-width: 680px;
     margin: 1rem auto 0;
   }
 
-  .makcu-nedir {
-    background: rgba(10, 10, 10, 0.85);
-    backdrop-filter: blur(8px);
-    border: 1px solid rgba(255, 255, 255, 0.1);
+  /* ========== BÖLÜM KUTULARI VE BİLEŞENLER ========== */
+  .section-card {
+    background: var(--card-bg);
+    backdrop-filter: blur(12px);
+    border: 1px solid var(--border-color);
     border-radius: 1.25rem;
     padding: 2.5rem;
     margin: 3rem 0;
-    text-align: left;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
   }
 
-  .makcu-nedir h2 {
+  .section-card h2 {
     font-family: 'Manrope', sans-serif;
     font-size: 1.8rem;
     font-weight: 700;
-    margin-bottom: 1.2rem;
-  }
-
-  .makcu-nedir p {
-    color: #cccccc;
-    font-size: 0.95rem;
     margin-bottom: 1rem;
-    line-height: 1.7;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
   }
 
-  .info-note {
+  .section-card h2 i {
+    color: var(--success-color);
+  }
+
+  /* Sinyal Rozetleri */
+  .pill-badge-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
     margin-top: 1.5rem;
-    padding: 0.85rem 1.2rem;
-    background: rgba(255,255,255,0.02);
-    border-left: 3px solid var(--success-color);
-    border-radius: 0.5rem;
-    font-size: 0.8rem;
-    color: #aaaaaa;
   }
 
+  .pill-badge {
+    background: rgba(0, 255, 128, 0.05);
+    border: 1px solid rgba(0, 255, 128, 0.2);
+    color: var(--success-color);
+    padding: 0.6rem 1.2rem;
+    border-radius: 50px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  /* İşleyiş Adımları Grid */
+  .workflow-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 1.25rem;
+    margin-top: 2rem;
+  }
+
+  .step-card {
+    background: rgba(15, 15, 15, 0.8);
+    border: 1px solid #222;
+    border-radius: 1rem;
+    padding: 1.5rem;
+    position: relative;
+    transition: all 0.2s ease;
+  }
+
+  .step-card:hover {
+    border-color: rgba(0, 255, 128, 0.3);
+    transform: translateY(-3px);
+  }
+
+  .step-num {
+    font-family: 'Manrope', sans-serif;
+    font-size: 2rem;
+    font-weight: 800;
+    color: rgba(255, 255, 255, 0.1);
+    position: absolute;
+    top: 1rem;
+    right: 1.25rem;
+  }
+
+  .step-card p {
+    font-size: 0.9rem;
+    color: #cccccc;
+    line-height: 1.6;
+  }
+
+  /* DMA Karşılaştırma Kutusu */
+  .dma-compare-box {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.5rem;
+    margin-top: 1.5rem;
+  }
+
+  .compare-card {
+    padding: 1.75rem;
+    border-radius: 1rem;
+    border: 1px solid #222;
+    background: rgba(5, 5, 5, 0.9);
+  }
+
+  .compare-card.dma { border-color: rgba(255, 77, 77, 0.2); }
+  .compare-card.makcu { border-color: rgba(0, 255, 128, 0.3); background: rgba(0, 255, 128, 0.02); }
+
+  .compare-card h3 {
+    font-size: 1.1rem;
+    font-family: 'Manrope', sans-serif;
+    margin-bottom: 0.75rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  /* Neden V3 Grid */
+  .why-v3-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 1.25rem;
+    margin-top: 1.5rem;
+  }
+
+  .why-card {
+    background: rgba(15, 15, 15, 0.9);
+    border: 1px solid #222;
+    border-radius: 1rem;
+    padding: 1.25rem;
+    transition: all 0.2s;
+  }
+
+  .why-card:hover {
+    border-color: var(--success-color);
+  }
+
+  .why-card h4 {
+    font-family: 'Manrope', sans-serif;
+    color: #ffffff;
+    font-size: 0.95rem;
+    margin-bottom: 0.5rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  .why-card p {
+    font-size: 0.82rem;
+    color: #999999;
+  }
+
+  /* Sistem Gereksinimleri Tablosu */
+  .sys-req-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.5rem;
+    margin-top: 1.5rem;
+  }
+
+  .sys-card {
+    background: rgba(12, 12, 12, 0.9);
+    border: 1px solid #222;
+    border-radius: 1rem;
+    padding: 1.75rem;
+  }
+
+  .sys-card h3 {
+    font-family: 'Manrope', sans-serif;
+    font-size: 1.1rem;
+    color: var(--success-color);
+    margin-bottom: 1rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid #222;
+  }
+
+  .sys-card ul {
+    list-style: none;
+  }
+
+  .sys-card ul li {
+    font-size: 0.88rem;
+    color: #cccccc;
+    margin-bottom: 0.6rem;
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+  }
+
+  .sys-card ul li i {
+    color: #666;
+    font-size: 0.8rem;
+  }
+
+  /* Galeri Slider */
   #gallerySlider {
     scrollbar-width: none;
     -ms-overflow-style: none;
@@ -247,7 +405,6 @@
     margin: 5rem 0;
   }
   
-  /* Sahibinden Buton Grubu Stilleri */
   .mk-review-action-buttons {
     display: flex;
     justify-content: center;
@@ -433,6 +590,40 @@
   .price-card.featured .discord-buy-btn { background: var(--success-color); }
   .discord-buy-btn:hover { transform: translateY(-1px); opacity: 0.9; }
 
+  /* Güvenlik Rozetleri */
+  .trust-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1.25rem;
+    margin-top: 3rem;
+  }
+
+  .trust-item {
+    background: rgba(15, 15, 15, 0.8);
+    border: 1px solid #222;
+    border-radius: 1rem;
+    padding: 1.25rem;
+    text-align: center;
+  }
+
+  .trust-item i {
+    font-size: 1.8rem;
+    color: var(--success-color);
+    margin-bottom: 0.5rem;
+  }
+
+  .trust-item h4 {
+    font-size: 0.9rem;
+    font-family: 'Manrope', sans-serif;
+    color: #ffffff;
+  }
+
+  .trust-item p {
+    font-size: 0.78rem;
+    color: #888888;
+    margin-top: 0.25rem;
+  }
+
   footer { text-align: center; margin-top: 5rem; padding: 3rem 1.5rem; border-top: 1px solid #111; font-size: 0.75rem; color: #555555; }
   .legal-box { max-width: 900px; margin: 0 auto 2rem; display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1.5rem; text-align: left; border-bottom: 1px solid #111; padding-bottom: 2rem; }
   .legal-col h4 { font-family: 'Manrope', sans-serif; color: #888; margin-bottom: 0.5rem; font-size: 0.8rem; letter-spacing: 0.5px; text-transform: uppercase; }
@@ -459,20 +650,141 @@
   <div class="hero">
     <div class="badge"><i class="fas fa-microchip"></i> MAKCU V3 Türkiye Optimizasyonu</div>
     <h1>MAKCU <span>V3</span> TÜRKİYE</h1>
-    <p class="hero-sub">Çift bilgisayarlı (2 PC) simülasyon sistemleri için optimize edilmiş, stabilite ve sıfır gecikme odaklı profesyonel veri aktarım donanımı.</p>
+    <p class="hero-sub">Sisteminizde hiçbir dijital parmak izi bırakmadan iki bilgisayar arasında köprü kuran profesyonel donanım altyapısı.</p>
   </div>
 
-  <!-- Bilgilendirme -->
-  <div class="makcu-nedir">
-    <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1.2rem;">
-      <i class="fas fa-project-diagram" style="font-size: 1.8rem; color: var(--success-color);"></i>
-      <h2>MAKCU Nedir ve Nasıl Çalışır?</h2>
+  <!-- 1. BÖLÜM: MAKCU Nedir ve Nasıl Çalışır? -->
+  <div class="section-card">
+    <h2><i class="fas fa-project-diagram"></i> MAKCU Nedir ve Nasıl Çalışır?</h2>
+    <p style="color: #cccccc; font-size: 0.95rem; margin-bottom: 1rem;">
+      <strong>MAKCU, sisteminizde hiçbir dijital parmak izi bırakmadan iki bilgisayar arasında köprü kuran profesyonel bir donanımdır.</strong> Sinyaller doğrudan donanım katmanında (HID) iletildiği için ana bilgisayarınız cihazı masanızdaki standart bir USB fare olarak algılar.
+    </p>
+
+    <!-- Desteklenen Özellikler & Oyun Uyumluluğu -->
+    <div style="background: rgba(0,0,0,0.4); padding: 1.25rem; border-radius: 0.75rem; border: 1px solid #222; margin: 1.5rem 0;">
+      <div style="font-weight: 700; color: #ffffff; font-size: 0.95rem; margin-bottom: 0.5rem; display: flex; align-items: center; gap: 0.5rem;">
+        <i class="fas fa-crosshairs" style="color: var(--success-color);"></i> Desteklenen Özellikler & Oyun Uyumluluğu
+      </div>
+      <p style="color: #bbb; font-size: 0.88rem; margin-bottom: 0.4rem;">
+        • <strong>İşlevler:</strong> Donanım yapısı gereği MAKCU ile sadece <strong>Aimbot</strong>, <strong>Triggerbot</strong> ve <strong>No Recoil</strong> özellikleri kullanılabilir.
+      </p>
+      <p style="color: #bbb; font-size: 0.88rem;">
+        • <strong>Oyun Uyumluluğu:</strong> Ekran görüntüsü ve yapay zeka tespiti üzerinden çalıştığı için piyasadaki <strong>bütün FPS oyunlarında</strong> istisnasız çalışır.
+      </p>
     </div>
-    <p><strong>MAKCU, işletim sistemi katmanına veya mevcut fare sürücelerine müdahale etmeyen tamamen donanımsal bir köprüdür.</strong> Ana bilgisayarınız üzerindeki donanım (HID) seviyesinde fiziksel bir USB farenin mimarisini simüle eder.</p>
-    <p>İki bilgisayarlı veri akış şemalarında; ikinci sistemde üretilen hedef girdi verilerini, milisaniyeler içerisinde ana oyun bilgisayarınıza <strong>"gerçek bir fiziksel mouse hareketi"</strong> olarak iletir. Süreç tamamen donanım tabanlı yürütüldüğü için en üst düzey kararlılık elde edilir.</p>
-    <div class="info-note">
-      <i class="fas fa-info-circle" style="color: var(--success-color); margin-right: 0.5rem;"></i>
-      <strong>Teknik Not:</strong> Cihazın içerisinde doğrudan orijinal Makcu firmware'leri kullanılmaktadır ve piyasadaki tüm Makcu firmware sürümleriyle %100 uyumludur. İstediğiniz firmware sürümünü rahatlıkla yükleyebilirsiniz. Ayrıca Makcu destekli tüm colorbot ve AI aim yazılımlarıyla tamamen sorunsuz ve entegre şekilde çalışır.
+
+    <h3 style="font-size: 1.1rem; color: #fff; font-family: 'Manrope', sans-serif; margin-top: 2rem;">Sistem Nasıl İşler?</h3>
+    <div class="workflow-grid">
+      <div class="step-card">
+        <span class="step-num">01</span>
+        <p>Ana bilgisayarınızın oyun ekranı, ikinci bilgisayara anlık olarak yayın (stream) şeklinde aktarılır.</p>
+      </div>
+      <div class="step-card">
+        <span class="step-num">02</span>
+        <p>İkinci bilgisayarda çalışan AI yazılımı, gelen bu ekran yayını üzerinden hedefleri saniyelik olarak izler.</p>
+      </div>
+      <div class="step-card">
+        <span class="step-num">03</span>
+        <p>Yazılım hedefi gördüğünde, imleci hedefe götürmek adına donanıma "input (hareket)" verisi üretir.</p>
+      </div>
+      <div class="step-card">
+        <span class="step-num">04</span>
+        <p>Bu veri MAKCU üzerinden aktarılarak ana bilgisayarınızda "gerçek bir fiziksel mouse hareketi" olarak oyuna yansır.</p>
+      </div>
+    </div>
+
+    <div class="pill-badge-container">
+      <span class="pill-badge"><i class="fas fa-shield-alt"></i> Sürücülere müdahale etmez</span>
+      <span class="pill-badge"><i class="fas fa-ghost"></i> İşletim sisteminde iz bırakmaz</span>
+      <span class="pill-badge"><i class="fas fa-bolt"></i> %100 Donanımsal İzolasyon</span>
+    </div>
+  </div>
+
+  <!-- 2. BÖLÜM: DMA'dan Farkı Nedir? -->
+  <div class="section-card">
+    <h2><i class="fas fa-microchip"></i> DMA'dan Farkı Nedir? (DMA Kartına İhtiyaç Var mı?)</h2>
+    <p style="color: #cccccc; font-size: 0.95rem;">
+      <strong>MAKCU kullanmak için herhangi bir DMA kartına kesinlikle ihtiyaç yoktur.</strong> İki sistemin çalışma prensipleri ve mimarileri birbirinden tamamen farklıdır:
+    </p>
+
+    <div class="dma-compare-box">
+      <div class="compare-card dma">
+        <h3><i class="fas fa-times-circle" style="color: #ff4d4d;"></i> DMA Sistemleri</h3>
+        <p style="font-size: 0.88rem; color: #aaa; line-height: 1.6;">
+          Anakartın <strong>PCIe slotuna</strong> doğrudan takılır. Ana bilgisayarın RAM (bellek) verilerini okuyarak çalışır. Kurulumu karmaşıktır ve özel donanım kartları gerektirir.
+        </p>
+      </div>
+
+      <div class="compare-card makcu">
+        <h3><i class="fas fa-check-circle" style="color: var(--success-color);"></i> MAKCU Donanımı</h3>
+        <p style="font-size: 0.88rem; color: #ddd; line-height: 1.6;">
+          Belleğe veya RAM'e kesinlikle erişmez. Sadece iki bilgisayar arasında <strong>USB slotu üzerinden köprü görevi gören</strong>, dışarıdan fiziksel fare komutu ileten harici bir donanımdır.
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <!-- 3. BÖLÜM: V3 ve Yazılım Altyapısı & Neden V3? -->
+  <div class="section-card">
+    <h2><i class="fas fa-layer-group"></i> V3 ve Yazılım Altyapısı</h2>
+    <p style="color: #cccccc; font-size: 0.95rem; line-height: 1.7;">
+      Piyasada standart cihaza ulaşmanın zorlaştığı bu dönemde, aynı mimariyi kullanarak kendi hazırladığım donanımı sunuyorum. <strong>V3 isimlendirmesi, tamamen bu cihazın benim tarafımdan toplanan bir "DIY Build" modeli olduğunu simgeler.</strong>
+    </p>
+    
+    <div style="background: rgba(255,255,255,0.02); border-left: 3px solid var(--success-color); padding: 1rem 1.25rem; border-radius: 0.5rem; margin: 1.25rem 0;">
+      <strong style="color: #fff; font-size: 0.9rem;">Orijinal Makcu Firmware ve Evrensel Uyum:</strong>
+      <p style="color: #bbb; font-size: 0.88rem; margin-top: 0.25rem;">
+        Cihazın içerisinde doğrudan orijinal Makcu firmware'leri kullanılmaktadır ve donanımımız piyasadaki bütün Makcu firmware'leri ile %100 uyumludur. İstediğiniz takdirde cihaza dilediğiniz Makcu firmware sürümünü hiçbir engelle karşılaşmadan rahatlıkla yükleyebilirsiniz. Ayrıca sistem, piyasada bulunan Makcu destekli tüm colorbot ve AI aim yazılımlarıyla tamamen sorunsuz ve entegre şekilde çalışmaktadır.
+      </p>
+      <p style="color: #999; font-size: 0.83rem; margin-top: 0.5rem;">
+        * Standart V2 modeli ile arasında kesinlikle hiçbir hız, tepkime veya performans farkı yoktur. Tamamen stabilite testleri yapılmış, kopma yaşatmayan, akıcı ve güvenilir bir donanıma sahip olursunuz.
+      </p>
+    </div>
+
+    <h3 style="font-size: 1.1rem; color: #fff; font-family: 'Manrope', sans-serif; margin-top: 2rem;">Neden V3?</h3>
+    <div class="why-v3-grid">
+      <div class="why-card">
+        <h4><i class="fas fa-code" style="color: var(--success-color);"></i> Orijinal Yazılım</h4>
+        <p>İçerisinde gömülü olan orijinal Makcu firmware'leri ile %100 kararlı çalışma garantisi.</p>
+      </div>
+      <div class="why-card">
+        <h4><i class="fas fa-plug" style="color: var(--success-color);"></i> Basit & Etkili Mimari</h4>
+        <p>Karmaşık teknik sorunlardan arındırılmış, tak-çalıştır stabil donanım yapısı.</p>
+      </div>
+      <div class="why-card">
+        <h4><i class="fas fa-tachometer-alt" style="color: var(--success-color);"></i> Kusursuz İletim</h4>
+        <p>V2 ile birebir aynı gecikmesiz ve akıcı veri aktarım altyapısı.</p>
+      </div>
+      <div class="why-card">
+        <h4><i class="fas fa-vial" style="color: var(--success-color);"></i> El Emeği Test Süreci</h4>
+        <p>Fabrikasyon bant üretiminin aksine, her bir cihazın kargolanmadan önce bizzat test edilmesi.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- 4. BÖLÜM: İkinci Bilgisayar Sistem Gereksinimleri -->
+  <div class="section-card">
+    <h2><i class="fas fa-desktop"></i> İkinci Bilgisayar Sistem Gereksinimleri</h2>
+    <p style="color: #aaaaaa; font-size: 0.9rem;">Yazılımı çalıştırmak için 2. PC'nizde ihtiyaç duyacağınız minimum ve önerilen donanım özellikleri:</p>
+
+    <div class="sys-req-grid">
+      <div class="sys-card">
+        <h3><i class="fas fa-palette"></i> COLORBOT (Hafif Sistem)</h3>
+        <ul>
+          <li><i class="fas fa-microchip"></i> <strong>CPU:</strong> 4 Çekirdek (Laptop olabilir)</li>
+          <li><i class="fas fa-memory"></i> <strong>RAM:</strong> 8 GB</li>
+          <li><i class="fas fa-tv"></i> <strong>GPU:</strong> Harici Ekran Kartı Gerekmez</li>
+        </ul>
+      </div>
+
+      <div class="sys-card">
+        <h3><i class="fas fa-brain"></i> AI BOT GEREKSİNİMLERİ (GPU Gerekli)</h3>
+        <ul>
+          <li><i class="fas fa-microchip"></i> <strong>Min GPU:</strong> GTX 1060 (Laptop olabilir)</li>
+          <li><i class="fas fa-star" style="color: #ffbc00;"></i> <strong>Önerilen GPU:</strong> RTX 3060 veya üzeri</li>
+          <li><i class="fas fa-memory"></i> <strong>RAM:</strong> 16 GB</li>
+        </ul>
+      </div>
     </div>
   </div>
 
@@ -697,96 +1009,6 @@
         </div>
       </div>
 
-      <!-- YORUM 11 -->
-      <div class="mk-review-card">
-        <div>
-          <div class="mk-review-header">
-            <div class="mk-user-avatar"><i class="fas fa-user"></i></div>
-            <div class="mk-user-info">
-              <p>Berk B.</p>
-              <div class="mk-review-stars">★★★★★</div>
-            </div>
-          </div>
-          <p class="mk-review-text">Siparişimin ertesi günü elimdeydi. Donanımsal kalitesi piyasa işlerine benzemiyor, çok başarılı.</p>
-        </div>
-        <div class="mk-review-meta">
-          <span class="mk-review-product">Makcu v3 xyron pg ilanı</span>
-          <span class="mk-review-date">05.05.2026</span>
-        </div>
-      </div>
-
-      <!-- YORUM 12 -->
-      <div class="mk-review-card">
-        <div>
-          <div class="mk-review-header">
-            <div class="mk-user-avatar"><i class="fas fa-user"></i></div>
-            <div class="mk-user-info">
-              <p>Talha C.</p>
-              <div class="mk-review-stars">★★★★★</div>
-            </div>
-          </div>
-          <p class="mk-review-text">"Anlatıldığı gibiyidi, herhangi bir sorun yok. Teşekkür ederim."</p>
-        </div>
-        <div class="mk-review-meta">
-          <span class="mk-review-product">Makcu premium paket</span>
-          <span class="mk-review-date">02.05.2026</span>
-        </div>
-      </div>
-
-      <!-- YORUM 13 -->
-      <div class="mk-review-card">
-        <div>
-          <div class="mk-review-header">
-            <div class="mk-user-avatar"><i class="fas fa-user"></i></div>
-            <div class="mk-user-info">
-              <p>Günay S.</p>
-              <div class="mk-review-stars">★★★★★</div>
-            </div>
-          </div>
-          <p class="mk-review-text">"güvenilir satıcı"</p>
-        </div>
-        <div class="mk-review-meta">
-          <span class="mk-review-product">Makcu v3 premium paket</span>
-          <span class="mk-review-date">30.04.2026</span>
-        </div>
-      </div>
-
-      <!-- YORUM 14 -->
-      <div class="mk-review-card">
-        <div>
-          <div class="mk-review-header">
-            <div class="mk-user-avatar"><i class="fas fa-user"></i></div>
-            <div class="mk-user-info">
-              <p>Emre K.</p>
-              <div class="mk-review-stars">★★★★★</div>
-            </div>
-          </div>
-          <p class="mk-review-text">"Aynı gün kargo.eksiksiz ve tam destek 5 yıldız"</p>
-        </div>
-        <div class="mk-review-meta">
-          <span class="mk-review-product">Makcu v3 standart paket</span>
-          <span class="mk-review-date">28.04.2026</span>
-        </div>
-      </div>
-
-      <!-- YORUM 15 -->
-      <div class="mk-review-card">
-        <div>
-          <div class="mk-review-header">
-            <div class="mk-user-avatar"><i class="fas fa-user"></i></div>
-            <div class="mk-user-info">
-              <p>Kürşat D.</p>
-              <div class="mk-review-stars">★★★★★</div>
-            </div>
-          </div>
-          <p class="mk-review-text">"Her konuda çok yardımcı oldu teşekkürler"</p>
-        </div>
-        <div class="mk-review-meta">
-          <span class="mk-review-product">Makcu v3 full paket</span>
-          <span class="mk-review-date">24.04.2026</span>
-        </div>
-      </div>
-
     </div>
   </div>
 
@@ -794,44 +1016,68 @@
   <div class="pricing-section">
     <div class="pricing-title">
       <div class="badge">Sınırlı Süre Forum & Web Özel Kampanyası</div>
-      <h2>Güncel Donanım Paketleri</h2>
+      <h2>Paketler ve Değer Önerisi</h2>
+      <p style="color: #aaaaaa; font-size: 0.9rem; margin-top: 0.5rem;">İhtiyacınıza ve tecrübenize en uygun paketi seçerek anında kuruluma geçebilirsiniz.</p>
     </div>
     <div class="pricing-grid">
       
       <div class="price-card">
         <div>
-          <span class="price-title">MAKCU V3 Standart Paket</span>
-          <p style="color: #777; font-size: 0.75rem; margin-top: 0.25rem;">Kendi kurulumunu yapabilen tecrübeli kullanıcılar için</p>
+          <span class="price-title">STANDART PAKET</span>
+          <p style="color: #777; font-size: 0.75rem; margin-top: 0.25rem;">Sadece tecrübeli ve ne yapacağını bilen kullanıcılar içindir.</p>
           <div class="price-old">3.500 ₺</div>
           <div class="price-amount">2.800 ₺ <small>/ Tek Sefer</small></div>
           <ul class="price-features">
-            <li><i class="fas fa-check"></i> MAKCU V3 Geliştirilmiş Donanım</li>
-            <li><i class="fas fa-check"></i> Orijinal Kararlı Firmware Yüklü Hazır Altyapı</li>
+            <li><i class="fas fa-check"></i> MAKCU V3 DIY Donanım Seti</li>
+            <li><i class="fas fa-check"></i> Orijinal Firmware Dahil</li>
             <li><i class="fas fa-check"></i> Yüksek Hızlı Type-C Kablo Seti</li>
-            <li><i class="fas fa-check"></i> USB OTG Dönüştürücü Adaptör</li>
-            <li><i class="fas fa-times" style="color: #ff4d4d;"></i> Canlı Kurulum ve Teknik Ayar Desteği Hariçtir</li>
+            <li><i class="fas fa-times" style="color: #ff4d4d;"></i> Herhangi bir teknik destek yoktur</li>
           </ul>
         </div>
-        <a href="https://discord.gg/tDMkmFTAGR" class="discord-buy-btn" target="_blank">Satın Al / Sipariş Ver</a>
+        <a href="https://discord.gg/tDMkmFTAGR" class="discord-buy-btn" target="_blank">Standart Paket Al</a>
       </div>
 
       <div class="price-card featured">
         <div>
-          <span class="price-title" style="color: var(--success-color)">MAKCU V3 Premium Paket</span>
-          <p style="color: #888; font-size: 0.75rem; margin-top: 0.25rem;">Anahtar Teslim - Tam Entegrasyon & Teknik Destek</p>
+          <span class="price-title" style="color: var(--success-color)">PREMIUM (FULL DESTEK)</span>
+          <p style="color: #888; font-size: 0.75rem; margin-top: 0.25rem;">Teknik detayla uğraşmayın, biz her şeyi hazırlayalım.</p>
           <div class="price-old">4.000 ₺</div>
           <div class="price-amount">3.500 ₺ <small>/ Tek Sefer</small></div>
           <ul class="price-features">
-            <li><i class="fas fa-check"></i> MAKCU V3 Donanım + Tüm Ek Aparatlar</li>
-            <li><i class="fas fa-check"></i> <strong>Discord Üzerinden Birebir Sesli/Ekranlı Kurulum</strong></li>
-            <li><i class="fas fa-check"></i> Gelişmiş Capture Method Entegrasyonu</li>
+            <li><i class="fas fa-check"></i> MAKCU V3 Donanım (Dahil)</li>
+            <li><i class="fas fa-check"></i> <strong>Birebir Canlı Kurulum Desteği</strong></li>
             <li><i class="fas fa-check"></i> Sınırsız AI Bot & Color Trigger Setup</li>
+            <li><i class="fas fa-check"></i> Capture (Yayın) Method Kurulumu</li>
             <li><i class="fas fa-check"></i> Özel Legit Config Ayarlaması</li>
           </ul>
         </div>
-        <a href="https://discord.gg/tDMkmFTAGR" class="discord-buy-btn" target="_blank">Premium Sahibi Ol</a>
+        <a href="https://discord.gg/tDMkmFTAGR" class="discord-buy-btn" target="_blank">Premium Paket Al</a>
       </div>
 
+    </div>
+
+    <!-- Güvenli Alışveriş Rozetleri -->
+    <div class="trust-grid">
+      <div class="trust-item">
+        <i class="fas fa-shield-check"></i>
+        <h4>Param Güvende</h4>
+        <p>Sahibinden sistemi ile %100 ödeme koruması</p>
+      </div>
+      <div class="trust-item">
+        <i class="fab fa-bitcoin"></i>
+        <h4>Kripto Ödeme</h4>
+        <p>USDT / BTC ile hızlı ve anonim ödeme seçeneği</p>
+      </div>
+      <div class="trust-item">
+        <i class="fas fa-box-check"></i>
+        <h4>Test Et & Onayla</h4>
+        <p>Ürünü teslim alıp test ettikten sonra onay verme imkanı</p>
+      </div>
+      <div class="trust-item">
+        <i class="fab fa-discord"></i>
+        <h4>7/24 Destek</h4>
+        <p>Stoktan hızlı kargo & aktif Discord topluluğu</p>
+      </div>
     </div>
   </div>
 
@@ -851,18 +1097,17 @@
   
   <p>© 2026 MAKCU Türkiye. Tüm Hakları Saklıdır. Bu site açık kaynak donanım şemaları üzerine bilgilendirme ve DIY build tedarik hizmeti sunmaktadır.</p>
   
+  <div class="seo-links">
+    <p>
+      <a href="#">makcu satın al</a> |
+      <a href="#">makcu türkiye satın al</a> | 
+      <a href="#">makcu türkiye</a> | 
+      <a href="#">dma satın al</a> | 
+      <a href="#">makcu nedir</a> |
+      <a href="https://cheatglobal.com" target="_blank" title="Cheatglobal">Cheatglobal</a>
+    </p>
   </div>
-      <p>
-        <a href="#">makcu satın al</a> |
-        <a href="#">makcu türkiye satın al</a> | 
-        <a href="#">makcu türkiye</a> | 
-        <a href="#">dma satın al</a> | 
-        <a href="#">makcu nedir</a> |
-        <a href="https://cheatglobal.com" target="_blank" title="Cheatglobal">Cheatglobal</a>
-      </p>
-    </div>
-  </footer>
-</div>
+</footer>
 
 <script>
   const cursor = document.getElementById('custom-cursor');
@@ -871,8 +1116,7 @@
     cursor.style.top = e.clientY - 14 + 'px';
   });
 
-  // Tıklanabilir elementlere yeni Sahibinden butonlarını da ekledik
-  const clickables = document.querySelectorAll('a, button, .discord-buy-btn, .mk-btn-sahibinden, .mk-btn-sahibinden-reviews');
+  const clickables = document.querySelectorAll('a, button, .discord-buy-btn, .mk-btn-sahibinden, .mk-btn-sahibinden-reviews, .step-card, .why-card');
   clickables.forEach(item => {
     item.addEventListener('mouseenter', () => cursor.classList.add('hover'));
     item.addEventListener('mouseleave', () => cursor.classList.remove('hover'));
